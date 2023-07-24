@@ -1,7 +1,9 @@
 #include "main.h"
+#include <stdarg.h>
 
 /**
  * _putchar - writes the character c to stdout
+ *
  * @c: The character to print
  *
  * Return: On success 1.
@@ -9,6 +11,13 @@
  */
 int _putchar(char c) { return (write(1, &c, 1)); }
 
+/**
+ * print_d - print digits
+ *
+ * @n: the number to print
+ *
+ * Return: Description of the returned value
+ */
 int print_d(int n)
 {
 	int digits[30];
@@ -40,6 +49,13 @@ int print_d(int n)
 	return (written);
 }
 
+/**
+ * print_s - print a string
+ *
+ * @str: pointer to the string
+ *
+ * Return: number of chars printed
+ */
 int print_s(char *str)
 {
 	int printed;
@@ -57,6 +73,13 @@ int print_s(char *str)
 	return (printed);
 }
 
+/**
+ * _printf - prints a formated string to stdio
+ *
+ * @format: the string to print
+ *
+ * Return: number of chars printed
+ */
 int _printf(const char *format, ...)
 {
 	va_list ap;
@@ -106,6 +129,7 @@ int _printf(const char *format, ...)
 		i++;
 	}
 
+	va_end(ap);
 	return (chars_printed);
 }
 
