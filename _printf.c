@@ -1,5 +1,4 @@
 #include "main.h"
-#include <unistd.h>
 
 /**
  * _putchar - writes the character c to stdout
@@ -12,7 +11,7 @@ int _putchar(char c) { return (write(1, &c, 1)); }
 
 int print_d(int n)
 {
-	int digits[10];
+	int digits[30];
 	int i, j, written;
 
 	i = 0;
@@ -48,11 +47,12 @@ int print_s(char *str)
 
 	string = str;
 
+	printed = 0;
 	while (*string != '\0')
 	{
 		printed += write(1, string, 1);
+		string++;
 	}
-	printed = 0;
 
 	return (printed);
 }
@@ -70,6 +70,8 @@ int _printf(const char *format, ...)
 
 	current_char = (char *)format;
 	va_start(ap, format);
+
+	chars_printed = 0;
 	i = 0;
 	while (current_char[i] != '\0')
 	{
@@ -90,8 +92,6 @@ int _printf(const char *format, ...)
 				chars_printed += _putchar('%');
 				break;
 			case 'd':
-				chars_printed += print_d(va_arg(ap, int));
-				break;
 			case 'i':
 				chars_printed += print_d(va_arg(ap, int));
 				break;
