@@ -136,6 +136,8 @@ int _printf(const char *format, ...)
 				chars_printed += print_d(va_arg(ap, int));
 				break;
 			default:
+				chars_printed += _putchar('%');
+				chars_printed += _putchar(current_char[i]);
 				break;
 			}
 		}
