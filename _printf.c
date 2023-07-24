@@ -91,7 +91,7 @@ int print_s(char *str)
 }
 
 /**
- * _printf - prints a formated string to stdio
+ * _printf - prints a formated string to stdout
  *
  * @format: the string to print
  *
