@@ -46,6 +46,8 @@ int print_s(char *str)
 	int printed;
 	char *string;
 
+	string = str;
+
 	while (*string != '\0')
 	{
 		printed += write(1, string, 1);
@@ -74,17 +76,23 @@ int _printf(const char *format, ...)
 		/* if current char is'%' */
 		if (current_char[i] == '%')
 		{
+			i++;
 			/* handle next char approprietly */
 			switch (current_char[i])
 			{
 			case 'c':
-				chars_printed += _putchar(va_arg(ap, char));
+				chars_printed += _putchar(va_arg(ap, int));
 				break;
 			case 's':
 				chars_printed += print_s(va_arg(ap, char *));
+				break;
 			case '%':
 				chars_printed += _putchar('%');
+				break;
 			case 'd':
+				chars_printed += print_d(va_arg(ap, int));
+				break;
+			case 'i':
 				chars_printed += print_d(va_arg(ap, int));
 				break;
 			default:
@@ -95,7 +103,9 @@ int _printf(const char *format, ...)
 		{
 			_putchar(current_char[i]);
 		}
+		i++;
 	}
 
-	return chars_printed;
+	return (chars_printed);
 }
+

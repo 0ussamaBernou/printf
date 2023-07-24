@@ -5,5 +5,8 @@
 #include <stdarg.h>
 
 int _printf(const char *format, ...);
+int _putchar(char c);
+int print_d(int n);
+int print_s(char *str);
 
 #endif /* ifndef MAIN_H  */
