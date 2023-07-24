@@ -4,5 +4,5 @@ betty-style *.c
 
 betty-doc *.c
 
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c test/*.c -o main
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c test/*.c -o test/main
 

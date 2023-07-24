@@ -22,12 +22,23 @@ int print_d(int n)
 {
 	int digits[30];
 	int i, j, written;
+	int skip_zeros;
 
 	i = 0;
 	written = 0;
 
 	if (n == 0)
+	{
 		written += _putchar('0');
+		return (written);
+	}
+	else if (n == INT_MIN)
+	{
+
+		digits[i] = -(n % 10);
+		n /= 10;
+		i++;
+	}
 
 	if (n < 0)
 	{
@@ -42,10 +53,16 @@ int print_d(int n)
 		i++;
 	}
 
+	skip_zeros = 1;
 	for (j = i - 1; j >= 0; j--)
 	{
-		written += _putchar(digits[j] + '0');
+		if (digits[j] != 0)
+			skip_zeros = 0;
+
+		if (!skip_zeros)
+			written += _putchar(digits[j] + '0');
 	}
+
 	return (written);
 }
 
@@ -124,7 +141,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(current_char[i]);
+			chars_printed += _putchar(current_char[i]);
 		}
 		i++;
 	}
