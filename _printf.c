@@ -67,6 +67,42 @@ int print_d(int n)
 }
 
 /**
+ * print_b - print binary form of uint
+ *
+ * @n: uint
+ *
+ * Return: number of chars printed
+ */
+int print_b(unsigned int n)
+{
+	unsigned int digits[30];
+	int i, j, written;
+
+	i = 0;
+	written = 0;
+
+	if (n == 0)
+	{
+		written += _putchar('0');
+		return (written);
+	}
+
+	while (n != 0)
+	{
+		digits[i] = n % 2;
+		n /= 2;
+		i++;
+	}
+
+	for (j = i - 1; j >= 0; j--)
+	{
+		written += _putchar(digits[j] + '0');
+	}
+
+	return (written);
+}
+
+/**
  * print_s - print a string
  *
  * @str: pointer to the string
@@ -134,6 +170,10 @@ int _printf(const char *format, ...)
 			case 'd':
 			case 'i':
 				chars_printed += print_d(va_arg(ap, int));
+				break;
+			case 'b':
+				chars_printed +=
+				    print_b(va_arg(ap, unsigned int));
 				break;
 			default:
 				chars_printed += _putchar('%');
