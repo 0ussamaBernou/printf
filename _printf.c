@@ -87,7 +87,7 @@ int print_b(unsigned int n)
 		return (written);
 	}
 
-	while (n != 0)
+	while (n >= 1)
 	{
 		digits[i] = n % 2;
 		n /= 2;
