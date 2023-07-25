@@ -103,6 +103,10 @@ int _printf(const char *format, ...)
 	int chars_printed, i;
 	char *current_char;
 
+	if (format == NULL)
+	{
+		return (0);
+	}
 
 	current_char = (char *)format;
 	va_start(ap, format);
