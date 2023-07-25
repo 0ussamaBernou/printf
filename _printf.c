@@ -81,11 +81,6 @@ int print_b(unsigned int n)
 	i = 0;
 	written = 0;
 
-	if (n == 0)
-	{
-		written += _putchar('0');
-		return (written);
-	}
 
 	while (n != 0)
 	{
