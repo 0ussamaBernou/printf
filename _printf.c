@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
  * _putchar - writes the character c to stdout
@@ -77,6 +76,10 @@ int print_s(char *str)
 {
 	int printed;
 	char *string;
+
+	if (str == NULL) {
+		return (0);
+	}
 
 	string = str;
 
